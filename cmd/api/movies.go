@@ -8,6 +8,10 @@ import (
 	"github.com/sguessou/greenlight/internal/data"
 )
 
+func ping(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("OK"))
+}
+
 func (app *application) createMovieHandler(w http.ResponseWriter, r *http.Request) {
 	var input struct {
 		Title   string   `json:"title"`
