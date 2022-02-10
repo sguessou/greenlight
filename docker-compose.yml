@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  greenlight-db:
+    image: postgres:14.1-alpine
+    env_file:
+      - database.env
+    ports:
+      - '5811:5432'
+    volumes:
+      - greenlight-db:/var/lib/postgresql/data/
+
+volumes:
+  greenlight-db:
+    driver: local
