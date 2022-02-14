@@ -37,3 +37,19 @@ func ValidateMovie(v *validator.Validator, movie *Movie) {
 type MovieModel struct {
 	DB *sql.DB
 }
+
+func (m MovieModel) Insert(movie *Movie) error {
+	return nil
+}
+
+func (m MovieModel) Get(id int64) (*Movie, error) {
+	return nil, nil
+}
+
+func (m MovieModel) Update(movie *Movie) error {
+	return nil
+}
+
+func (m MovieModel) Delete(id int64) error {
+	return nil
+}
