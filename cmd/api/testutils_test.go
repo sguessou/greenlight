@@ -2,12 +2,14 @@ package main
 
 import (
 	"io"
-	"log"
 	"net/http"
 	"net/http/cookiejar"
 	"net/http/httptest"
+	"os"
 	"strings"
 	"testing"
+
+	"github.com/sguessou/greenlight/internal/jsonlog"
 )
 
 type testServer struct {
@@ -20,7 +22,7 @@ func newTestApplication(t *testing.T) *application {
 			port: 3007,
 			env:  "testing",
 		},
-		logger: log.New(io.Discard, "", 0),
+		logger: jsonlog.New(os.Stdout, jsonlog.LevelInfo),
 	}
 }
 
