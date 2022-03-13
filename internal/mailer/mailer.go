@@ -34,7 +34,7 @@ func (m Mailer) Send(recipient, templateFile string, data interface{}) error {
 	}
 
 	subject := new(bytes.Buffer)
-	err = tmpl.Execute(subject, "subject", data)
+	err = tmpl.ExecuteTemplate(subject, "subject", data)
 	if err != nil {
 		return err
 	}
