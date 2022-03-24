@@ -117,7 +117,6 @@ func (m UserModel) GetByEmail(email string) (*User, error) {
 		WHERE email = $1`
 
 	var user User
-
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
@@ -125,6 +124,7 @@ func (m UserModel) GetByEmail(email string) (*User, error) {
 		&user.ID,
 		&user.CreatedAt,
 		&user.Name,
+		&user.Email,
 		&user.Password.hash,
 		&user.Activated,
 		&user.Version,
