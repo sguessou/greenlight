@@ -6,7 +6,6 @@ import (
 	"net/http/cookiejar"
 	"net/http/httptest"
 	"os"
-	"strings"
 	"testing"
 
 	"github.com/sguessou/greenlight/internal/jsonlog"
@@ -58,16 +57,16 @@ func (ts *testServer) get(t *testing.T, urlPath string) (int, http.Header, []byt
 	return rs.StatusCode, rs.Header, body
 }
 
-func (ts *testServer) post(t *testing.T, urlPath string, body string) (int, http.Header, []byte) {
-	rs, err := ts.Client().Post(ts.URL+urlPath, "application/json", strings.NewReader(body))
-	if err != nil {
-		t.Fatal(err)
-	}
+// func (ts *testServer) post(t *testing.T, urlPath string, body string) (int, http.Header, []byte) {
+// 	rs, err := ts.Client().Post(ts.URL+urlPath, "application/json", strings.NewReader(body))
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
 
-	defer rs.Body.Close()
-	resp, err := io.ReadAll(rs.Body)
-	if err != nil {
-		t.Fatal(err)
-	}
-	return rs.StatusCode, rs.Header, resp
-}
+// 	defer rs.Body.Close()
+// 	resp, err := io.ReadAll(rs.Body)
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
+// 	return rs.StatusCode, rs.Header, resp
+// }
