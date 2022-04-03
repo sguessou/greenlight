@@ -1,4 +1,9 @@
-http://134.122.59.179 {
+# email contact in case of a problem with TLS certs.
+{
+  email guessous_saad@hotmail.com
+}
+
+sguessou.ml {
   respond /debug/* "Not Permitted" 403
   reverse_proxy localhost:4000
 }
